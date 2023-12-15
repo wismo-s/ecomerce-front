@@ -6,7 +6,7 @@ export function ProductList() {
     const products = useProducts();
 
   return (
-    <div>
+  <div>
     {products ? (
       products.map((product) => (
         <ProductCarts key={product.id} product={product} />
