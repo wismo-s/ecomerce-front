@@ -15,8 +15,10 @@ api.xsrfHeaderName = "X-CSRFToken";
 api.withCredentials = true;
 api.defaults.headers.common["Authorization"] = `Token ${token}`;
 const router = {
-    getProductsList: 'tienda/productos/'
+    getProductsList: 'tienda/productos/',
+    getCategoryList: 'tienda/categorias/',
 }
 
 export const getProductsList = () => api.get(router.getProductsList);
 export const getProductsDetail = (slug) => api.get(`${router.getProductsList}${slug}/`);
+export const getCategory = (slug) => api.get(`${router.getCategoryList}${slug}/`);

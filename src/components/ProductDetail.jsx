@@ -54,7 +54,7 @@ export function ProductDetail({productDetail}) {
                         </div>
                         <div className="info-container_description">
                             <p>{productDetail.description}</p>
-                            <Link to={`categoria/${productDetail.category_slug}`}>{productDetail.category}</Link>
+                            <Link to={`/categoria/${productDetail.category_slug}`}>{productDetail.category}</Link>
                             <select className='info-container_option' name="select">
                                 {productDetail.choises.map((choise) => (
                                     <option key={choise.id} value={choise.id}>{choise.option}</option>

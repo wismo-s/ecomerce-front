@@ -4,6 +4,7 @@ import { Footer } from './layouts/Footer'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import { Product } from './pages/Product'
+import { Category } from './pages/Category'
 import './App.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/productos/:slug" element={<Product />}/>
+        <Route path="/categoria/:slug" element={<Category />}/>
         <Route element={<NotFound />}/>
       </Routes>
       <Footer />
