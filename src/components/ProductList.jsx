@@ -1,12 +1,11 @@
 import React from 'react';
-import { useProducts } from '../hooks/useProducts';
 import { ProductCarts } from './ProductCarts';
+import '../styles/ProductList.css';
 
-export function ProductList() {
-    const products = useProducts();
+export function ProductList({products}) {
 
   return (
-  <div>
+  <div className='ProductList-container'>
     {products ? (
       products.map((product) => (
         <ProductCarts key={product.id} product={product} />

@@ -19,3 +19,4 @@ const router = {
 }
 
 export const getProductsList = () => api.get(router.getProductsList);
+export const getProductsDetail = (slug) => api.get(`${router.getProductsList}${slug}/`);
