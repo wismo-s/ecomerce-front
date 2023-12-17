@@ -5,19 +5,22 @@ import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import { Product } from './pages/Product'
 import { Category } from './pages/Category'
+import { UserProvider } from './context/userContext'
 import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/productos/:slug" element={<Product />}/>
-        <Route path="/categoria/:slug" element={<Category />}/>
-        <Route element={<NotFound />}/>
-      </Routes>
-      <Footer />
+      <UserProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/productos/:slug" element={<Product />}/>
+          <Route path="/categoria/:slug" element={<Category />}/>
+          <Route element={<NotFound />}/>
+        </Routes>
+        <Footer />
+      </UserProvider>
     </BrowserRouter>
   )
 }
