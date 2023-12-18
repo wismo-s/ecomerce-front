@@ -1,0 +1,23 @@
+.form-modal{
+   display: flex;
+   justify-content: end;
+   height: 96vh;
+}
+.form-modal_container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 10px;
+}
+.form-modal_container h1{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+.form-modal_container p {
+    flood-color: grey;
+    margin-bottom: 50px;
+}

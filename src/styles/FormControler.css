@@ -1,0 +1,16 @@
+.form-controler_container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-controler_form{
+    width: 100%;
+}
+.form-controler_form button{
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    background-color: #009746;
+}
