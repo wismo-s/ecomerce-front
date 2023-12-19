@@ -7,6 +7,7 @@ import { Product } from './pages/Product'
 import { Category } from './pages/Category'
 import { UserProvider } from './context/userContext'
 import { CreateUser } from './pages/CreateUser'
+import { Login } from './pages/Login'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/productos/:slug" element={<Product />}/>
           <Route path="/categoria/:slug" element={<Category />}/>
           <Route path="/create-user" element={<CreateUser />}/>
+          <Route path="/login" element={<Login />}/>
           <Route element={<NotFound />}/>
         </Routes>
         <Footer />

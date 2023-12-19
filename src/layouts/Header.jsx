@@ -28,7 +28,7 @@ export function Header() {
                 <li className='Header-list_link'>S</li>
                 {user === null ? (
                     <>
-                        <li className='Header-list_link'>iniciar session</li>
+                        <li className='Header-list_link'><NavLink to='/login'>iniciar session</NavLink></li>
                         <li className='Header-list_link'><NavLink to='/create-user'>registarse</NavLink></li>
                     </>
                 ):(

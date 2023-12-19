@@ -11,7 +11,7 @@ export function UserProvider({children}) {
     useEffect(() => {
         getUserDetails()
         .then((response) => {
-            setUser(response)
+            setUser(response.data)
         })
         .catch((error) => {
             setUser(null)
