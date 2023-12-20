@@ -8,6 +8,7 @@ import { Category } from './pages/Category'
 import { UserProvider } from './context/userContext'
 import { CreateUser } from './pages/CreateUser'
 import { Login } from './pages/Login'
+import { UserDetail } from './pages/UserDetail'
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/categoria/:slug" element={<Category />}/>
           <Route path="/create-user" element={<CreateUser />}/>
           <Route path="/login" element={<Login />}/>
+          <Route path="/perfil" element={<UserDetail />}/>
           <Route element={<NotFound />}/>
         </Routes>
         <Footer />

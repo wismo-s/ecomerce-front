@@ -1,0 +1,28 @@
+.editableinput-container{
+    width: 98%;
+    font-size: 18px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    height: 45px;
+    background-color: aquamarine;
+    align-items: center;
+    padding-left: 5px;
+    margin: 5px;
+}
+.editableinput-container span{
+    margin-left: 5px;
+}
+.editableInput_input{
+    width: 50%;
+    border-bottom: 1px solid gray;
+    outline: none;
+    font-size: 18px;
+    margin-left: 5px;
+    background-color: transparent;
+}
+.editableInput_edit{
+    position: absolute;
+    right: 8px;
+    top: 2px;
+}

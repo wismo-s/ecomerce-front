@@ -34,7 +34,7 @@ export function Header() {
                 ):(
                     <>
                         <li className='Header-list_link'>carrito</li>
-                        <li className='Header-list_link'>perfil</li>
+                        <li className='Header-list_link'><NavLink to='/perfil'>perfil</NavLink></li>
                     </>
                 )}
             </ul>
