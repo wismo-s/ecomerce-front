@@ -18,6 +18,7 @@ const router = {
     getProductsList: 'tienda/productos/',
     getCategoryList: 'tienda/categorias/',
     getUserDetails: 'usuario/detalles/',
+    getUserDetailsExtra: 'usuario/detalles/extra/',
     postCreateUser: 'usuario/registar/',
     postLogin: 'usuario/login/',
 }
@@ -28,3 +29,5 @@ export const getCategory = (slug) => api.get(`${router.getCategoryList}${slug}/`
 export const getUserDetails = () => api.get(router.getUserDetails);
 export const postCreateUser = (data) => api.post(router.postCreateUser, data);
 export const postLogin = (data) => api.post(router.postLogin, data);
+export const putUserEdit = (data) => api.put(router.getUserDetails, data);
+export const putUserEditDetails = (data) => api.put(router.getUserDetailsExtra, data);

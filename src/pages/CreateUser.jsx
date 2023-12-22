@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { postCreateUser } from '../api/list.api';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/userContext'
@@ -8,21 +7,12 @@ import '../styles/FormSyles.css'
 
 export function CreateUser() {
     const user = useUserContext();
-    const [err, seterr] = useState(false)
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const arrdata = Array.from(new FormData(e.target))
-        const data = Object.fromEntries(arrdata)
-        postCreateUser(data)
-        .then((res) => {
+    const onsubmit = (res) => {
             navigate('/login')
-        }).catch((error) => {
-            console.log(error);
-            seterr(true)
-        })
     }
+
   return (
     <div className='form-modal'>
         <div className='form-modal_container'>
@@ -30,7 +20,7 @@ export function CreateUser() {
             <h1>Crea una cuenta</h1>
             <p>porfavor rellene el formulario</p>
         {user === null ? (
-            <FormControler onsubmitfun={handleSubmit} err={err}>
+            <FormControler onsubmitfun={onsubmit} ruteTo={postCreateUser}>
                 <InputComponent type='text' label='Username' name='username'/>
                 <InputComponent type='email' label='Email' name='email'/>
                 <InputComponent type='text' label='Nombre' name='first_name'/>

@@ -1,18 +1,12 @@
 import { FormControler } from './FormControler'
 import '../styles/EditableCards.css'
 
-export function EditableCarts({children, onsubmitfun, err, editinOn}) {
+export function EditableCarts({children, onsubmitfun, buttonOn, ruteTo}) {
   return (
     <div className='editable-component-container'>
-        { editinOn ? (
-        <FormControler className="FormControler-container" onsubmitfun={onsubmitfun} err={err}>
+        <FormControler className="FormControler-container" ruteTo={ruteTo} onsubmitfun={onsubmitfun} buttonOn={buttonOn}>
             {children}
         </FormControler>
-        ) : (
-            <div className='childrens-container'>
-                {children}
-            </div>
-        ) }
     </div>
   )
 }
