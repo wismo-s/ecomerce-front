@@ -33,7 +33,7 @@ export function Header() {
                     </>
                 ):(
                     <>
-                        <li className='Header-list_link'>carrito</li>
+                        <li className='Header-list_link'><NavLink to='/carrito'>carrito</NavLink></li>
                         <li className='Header-list_link'><NavLink to='/perfil'>perfil</NavLink></li>
                     </>
                 )}

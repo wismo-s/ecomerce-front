@@ -1,11 +1,20 @@
 import '../styles/ProductDetail.css'
-import { useState, Fragment } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ShopButton } from './ShopButton'
 export function ProductDetail({productDetail}) {
     const url = 'http://127.0.0.1:8000/tienda'
     const [img, setImg] = useState(url + productDetail.port_img)
+    const [quantity, setQuantity] = useState(0)
+    const [choise, setChoise] = useState(productDetail.choises[0].id)
     const HandleClick = (e) => {
         setImg(e.target.src)
+    }
+    const HandleSelect = (e) => {
+        setChoise(e.target.value)
+    }
+    const handleChange = (e) => {
+        setQuantity(e.target.value)
     }
     const finalPrice = (productDetail.price - productDetail.discount).toFixed(2);
     const discount = ((productDetail.discount * 100)/productDetail.price).toFixed(0);
@@ -55,15 +64,17 @@ export function ProductDetail({productDetail}) {
                         <div className="info-container_description">
                             <p>{productDetail.description}</p>
                             <Link to={`/categoria/${productDetail.category_slug}`}>{productDetail.category}</Link>
-                            <select className='info-container_option' name="select">
+                            <select className='info-container_option' name="select" onChange={HandleSelect} value={choise}>
                                 {productDetail.choises.map((choise) => (
                                     <option key={choise.id} value={choise.id}>{choise.option}</option>
                                 )
                                 )}
                             </select>
                             <div className='info-container_inputs'>
-                                <input type="number" min="0"/>
-                                <button className='info-container_buton'>COMPRAR</button>
+                                <input type="number" min="0" value={quantity} onChange={handleChange}/>
+                                <ShopButton className='info-container_buton' 
+                                productDetail={productDetail} quantity={quantity} 
+                                discount={discount} finalPrice={finalPrice} choise={choise}>COMPRAR</ShopButton>
                             </div>
                         </div>
                     </div>

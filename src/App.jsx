@@ -9,6 +9,7 @@ import { UserProvider } from './context/userContext'
 import { CreateUser } from './pages/CreateUser'
 import { Login } from './pages/Login'
 import { UserDetail } from './pages/UserDetail'
+import { Cart } from './pages/Cart'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/create-user" element={<CreateUser />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/perfil" element={<UserDetail />}/>
+          <Route path="/carrito" element={<Cart />}/>
           <Route element={<NotFound />}/>
         </Routes>
         <Footer />

@@ -34,7 +34,7 @@ export function ProductCarts({product}) {
                         <p>s/.{product.price}</p>
                     }
                     <div className='ProductCarts-container_buton'>
-                        <button className='ProductCarts_button'>COMPAR</button>
+                        <button className='ProductCarts_button' >COMPAR</button>
                     </div>
                 </div>
             </div>
