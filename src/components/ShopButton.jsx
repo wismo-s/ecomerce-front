@@ -1,13 +1,16 @@
-import { setcart } from '../hooks/useCart'
+import { setcart, useCart } from '../hooks/useCart'
 
-export function ShopButton({ className, productDetail, quantity, discount, finalPrice, choise }) {
+export function ShopButton({ className, productDetail, quantity, discount, finalPrice, choise, price }) {
+  const cart = useCart()
     const onClick = (e) => {
       const arrdata = { ...productDetail, 
       quantity: quantity,
       discount: discount,
-      finalPrice: finalPrice,
+      unitFinalPrice: finalPrice,
+      totalNonDesc: price * quantity,
+      finalTotal: finalPrice * quantity,
       }
-
+      console.log(arrdata);
       delete arrdata.description
       delete arrdata.firts_img
       delete arrdata.second_img

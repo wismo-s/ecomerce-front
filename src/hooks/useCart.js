@@ -1,15 +1,4 @@
 import { useState, useEffect } from 'react';
-const setcart = (arrdata) => {
-  const localCart = JSON.parse(localStorage.getItem('cart'));
-  localCart ? 
-  localStorage.setItem('cart', JSON.stringify([...localCart, arrdata])) :
-  localStorage.setItem('cart', JSON.stringify([arrdata])) 
-}
-
-const removecart = () => {
-  
-}
-
 
 export function useCart() {
   const [cart, setCart] = useState([]);
@@ -24,7 +13,34 @@ export function useCart() {
     }
   }, []);
 
-  return cart;
+  return [cart, setCart];
 }
 
-export { setcart, removecart }
+const setcart = (arrdata) => {
+  const localCart = JSON.parse(localStorage.getItem('cart'));
+  localCart ? 
+  localStorage.setItem('cart', JSON.stringify([...localCart, arrdata])) :
+  localStorage.setItem('cart', JSON.stringify([arrdata])) 
+}
+const getIndex = (id) => {
+  const arr = JSON.parse(localStorage.getItem('cart')) || [];
+  return arr.findIndex((item) => item.id === id);
+};
+const editcart = (id, setcart = ()=>{}, quantity, finalPrice, totalPrice) => {
+  const index = getIndex(id);
+  const arr = JSON.parse(localStorage.getItem('cart')) || [];
+  arr[index].quantity = quantity;
+  arr[index].totalNonDesc = totalPrice;
+  arr[index].finalTotal = finalPrice;
+  localStorage.setItem('cart', JSON.stringify(arr));
+  setcart(arr);
+};
+const removecart = (id, setcart = ()=>{}) => {
+  const index = getIndex(id);
+  const arr = JSON.parse(localStorage.getItem('cart')) || [];
+  arr.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(arr));
+  setcart(arr);
+};
+
+export { setcart, removecart, editcart }

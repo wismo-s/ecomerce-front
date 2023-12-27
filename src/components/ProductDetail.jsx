@@ -5,7 +5,7 @@ import { ShopButton } from './ShopButton'
 export function ProductDetail({productDetail}) {
     const url = 'http://127.0.0.1:8000/tienda'
     const [img, setImg] = useState(url + productDetail.port_img)
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
     const [choise, setChoise] = useState(productDetail.choises[0].id)
     const HandleClick = (e) => {
         setImg(e.target.src)
@@ -71,10 +71,10 @@ export function ProductDetail({productDetail}) {
                                 )}
                             </select>
                             <div className='info-container_inputs'>
-                                <input type="number" min="0" value={quantity} onChange={handleChange}/>
+                                <input type="number" min="1" value={quantity} onChange={handleChange}/>
                                 <ShopButton className='info-container_buton' 
                                 productDetail={productDetail} quantity={quantity} 
-                                discount={discount} finalPrice={finalPrice} choise={choise}>COMPRAR</ShopButton>
+                                discount={discount} finalPrice={finalPrice} choise={choise} price={productDetail.price}>COMPRAR</ShopButton>
                             </div>
                         </div>
                     </div>
