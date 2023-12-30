@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/userContext'
 import { FormControler } from '../components/FormControler';
 import { InputComponent } from '../components/InputComponent';
+import { motion } from 'framer-motion';
 import '../styles/FormSyles.css'
 
 export function CreateUser() {
@@ -10,28 +11,31 @@ export function CreateUser() {
     const navigate = useNavigate();
 
     const onsubmit = (res) => {
-            navigate('/login')
+        navigate('/login')
     }
 
   return (
     <div className='form-modal'>
-        <div className='form-modal_container'>
+        <motion.div className='form-modal_container' 
+        animate={{
+            x: [500, 0],
+        }}>
             <h2>LOGO</h2>
             <h1>Crea una cuenta</h1>
             <p>porfavor rellene el formulario</p>
-        {user === null ? (
-            <FormControler onsubmitfun={onsubmit} ruteTo={postCreateUser}>
-                <InputComponent type='text' label='Username' name='username'/>
-                <InputComponent type='email' label='Email' name='email'/>
-                <InputComponent type='text' label='Nombre' name='first_name'/>
-                <InputComponent type='text' label='Apellidos' name='last_name'/>
-                <InputComponent type='text' label='Telefono' name='phone'/>
-                <InputComponent type='password' label='Contrasena' name='password'/>
-            </FormControler>
-        ):(
-            <h1>Ya estas registrado</h1>
-        )}
-        </div>
+            {user === null ? (
+                <FormControler onsubmitfun={onsubmit} ruteTo={postCreateUser}>
+                    <InputComponent type='text' label='Username' name='username'/>
+                    <InputComponent type='email' label='Email' name='email'/>
+                    <InputComponent type='text' label='Nombre' name='first_name'/>
+                    <InputComponent type='text' label='Apellidos' name='last_name'/>
+                    <InputComponent type='text' label='Telefono' name='phone'/>
+                    <InputComponent type='password' label='Contrasena' name='password'/>
+                </FormControler>
+            ):(
+                <h1>Ya estas registrado</h1>
+            )}
+        </motion.div>
     </div>
   )
 }

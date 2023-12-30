@@ -3,6 +3,7 @@ import { useUserContext } from '../context/userContext'
 import { EditableInput } from '../components/EditableInput'
 import { EditableCarts } from '../components/EditableCarts';
 import { putUserEdit, putUserEditDetails } from '../api/list.api';
+import { motion } from 'framer-motion'
 import '../styles/EditableCards.css'
 
 export function UserDetail() {
@@ -20,7 +21,7 @@ export function UserDetail() {
         { user === null ? (
             <h1>no estas logeado</h1>
         ) : (    
-        <div className='editable-cards-container'>
+        <motion.section className='editable-cards-container' animate={{opacity: [0, 1], x: [-300, 0]}}>
             <EditableCarts onsubmitfun={handleSubmit} buttonOn={isEditingUser} ruteTo={putUserEdit}>
                 <EditableInput type="text" name="username" label='Username' value={user.username} onEditin={handleEdituser} isEditable={false}/>
                 <EditableInput type="email" name="email" label='Correo' value={user.email} onEditin={handleEdituser}/>
@@ -35,7 +36,7 @@ export function UserDetail() {
                 <EditableInput type="text" name="phone" label='Telefono' value={user.phone} onEditin={handleEditMoreData}/>
                 <EditableInput type="text" name="postal_code" label='Codigo postal' value={user.postal_code} onEditin={handleEditMoreData}/>
             </EditableCarts>
-        </div>
+        </motion.section>
         ) }
     </div>
   )

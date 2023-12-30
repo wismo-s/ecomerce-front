@@ -1,11 +1,9 @@
-import React from 'react';
 import { ProductCarts } from './ProductCarts';
 import '../styles/ProductList.css';
 
-export function ProductList({products}) {
-
+export function ProductList({products}) { 
   return (
-  <div className='ProductList-container'>
+  <section className='ProductList-container'>
     {products ? (
       products.map((product) => (
         <ProductCarts key={product.id} product={product} />
@@ -13,6 +11,6 @@ export function ProductList({products}) {
     ) : (
       <div>Cargando...</div>
     )}
-  </div>
+  </section>
   )
 }

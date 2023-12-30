@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../styles/ProductsCarts.css';
 import { Link } from 'react-router-dom';
+import { MotionButton } from './MotionButton';
+import { motion } from 'framer-motion';
 
 const url = 'http://127.0.0.1:8000/tienda'
 export function ProductCarts({product}) {
@@ -16,11 +18,11 @@ export function ProductCarts({product}) {
     }
 
   return (
-    <Link to={`/productos/${product.slug}`}>
-        <div className='ProductCarts-container'>
+      <motion.article className='ProductCarts-container' animate={{opacity:[0, 1], y:[80,0]}}>
             <div className='ProductCarts-container_img'>
                 <img src={url+urlImg} alt={product.title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
             </div>
+            <Link to={`/productos/${product.slug}`}>
             <div className='ProductCarts-container_info'>
                 <h3 className='ProductCarts-title'>{product.title}</h3>
                 <div className='ProductCarts-container_text'>
@@ -34,11 +36,11 @@ export function ProductCarts({product}) {
                         <p>s/.{product.price}</p>
                     }
                     <div className='ProductCarts-container_buton'>
-                        <button className='ProductCarts_button' >COMPAR</button>
+                        <MotionButton className='ProductCarts_button' scaleHover={1.1}>VER</MotionButton>
                     </div>
                 </div>
             </div>
-        </div>
-    </Link>
+            </Link>
+        </motion.article>
   )
 }

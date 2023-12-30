@@ -1,4 +1,5 @@
 import { setcart, useCart } from '../hooks/useCart'
+import { MotionButton } from './MotionButton'
 
 export function ShopButton({ className, productDetail, quantity, discount, finalPrice, choise, price }) {
   const cart = useCart()
@@ -23,6 +24,6 @@ export function ShopButton({ className, productDetail, quantity, discount, final
       setcart(arrdata)
     }
   return (
-    <button className={className} onClick={onClick}>COMPRAR</button>
+    <MotionButton className={className} onClick={onClick}>COMPRAR</MotionButton>
   )
 }

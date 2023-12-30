@@ -76,4 +76,5 @@
     border: none;
     border-radius: 5px;
     z-index: 100;
+    cursor: pointer;
 }

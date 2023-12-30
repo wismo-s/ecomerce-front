@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/EditableInputs.css'
+
 export function EditableInput({value, type, label, name, onEditin, isEditable = true}) {
     const [isEditing, setIsEditing] = useState(false)
     const [inputValue, setInputValue] = useState(value)

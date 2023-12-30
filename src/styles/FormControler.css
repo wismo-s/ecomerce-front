@@ -13,4 +13,8 @@
     border-radius: 15px;
     color: white;
     background-color: #009746;
+    font-weight: 800;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { removecart, editcart } from '../hooks/useCart'
 import { useState, useEffect } from 'react'
+import { useAnimate } from 'framer-motion'
 import '../styles/CartItem.css'
 
 export function CartItem({item, actualizate}) {
@@ -8,12 +9,14 @@ export function CartItem({item, actualizate}) {
     const [quantity, setQuantity] = useState(item.quantity)
     const [finalPrice, setFinalPrice] = useState(item.finalTotal)
     const [totalPrice, setTotalPrice] = useState(item.totalNonDesc)
+    const [scope, animete ] = useAnimate()
 
     useEffect(() => {
         const totalPrice = item.price * quantity
         const finalPrice = item.unitFinalPrice * quantity
         setTotalPrice(totalPrice)
         setFinalPrice(finalPrice)
+        animete(scope.current, { opacity: [0, 1], scale: [1.5, 1], transition: { duration: 0.5 }})
         editcart(item.id, actualizate, quantity, finalPrice, totalPrice);
     }, [quantity])
 
@@ -24,20 +27,20 @@ export function CartItem({item, actualizate}) {
         removecart(item.id, actualizate);
     }
   return (
-    <article>
+    <article className='cartItem-article'>
         <div className='CartItem-container-img'>
             <img src={url+item.port_img} alt={item.title} />
         </div>
         <div className='text-container'>
             <h2>{item.title}</h2>
-            <NavLink to={item.category_slug}>{item.category}</NavLink>
+            <NavLink to={`/categoria/${item.category_slug}`}>{item.category}</NavLink>
             { item.discount > 0 ? 
             <>
-                <p className='final-price'>S/.{finalPrice}</p>
+                <p ref={scope} className='final-price'>S/.{finalPrice}</p>
                 <p className='total-price'>S/.{totalPrice}</p>
                 <span className='discount-porcent'>{item.discount}%</span>
             </> : 
-                <p className='final-price'>S/.{totalPrice}</p>
+                <p ref={scope} className='final-price'>S/.{totalPrice}</p>
             }
             <select name='choises' className='choises-select'>
                 <option value={item.choise[0].id}>{item.choise[0].option}</option>

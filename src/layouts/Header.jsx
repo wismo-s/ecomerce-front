@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useUserContext } from '../context/userContext'
+import { motion } from 'framer-motion'
 import '../styles/Header.css'
 
 const links = [
@@ -12,7 +13,13 @@ const links = [
 export function Header() {
     const user = useUserContext();
   return (
-    <div className='Header-container'>
+    <motion.div className='Header-container' animate={{
+        y: [-100, 0],
+    }}
+    transition={{
+        duration: 0.4,
+        ease: 'backInOut',
+    }}>
         <ul className='Header-list'>
             {links.map(link => (
                 <li key={link.id} className='Header-list_link' >
@@ -21,11 +28,10 @@ export function Header() {
             ))}
         </ul>
         <div>
-            <h1>Logo</h1>
+            <h1><NavLink to="/">LOGO</NavLink></h1>
         </div>
         <div>
             <ul className='Header-list'>
-                <li className='Header-list_link'>S</li>
                 {user === null ? (
                     <>
                         <li className='Header-list_link'><NavLink to='/login'>iniciar session</NavLink></li>
@@ -39,6 +45,6 @@ export function Header() {
                 )}
             </ul>
         </div>
-    </div>
+    </motion.div>
   )
 }

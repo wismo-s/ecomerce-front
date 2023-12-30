@@ -2,53 +2,60 @@ import '../styles/ProductDetail.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ShopButton } from './ShopButton'
+import { motion, useAnimate } from 'framer-motion'
 export function ProductDetail({productDetail}) {
     const url = 'http://127.0.0.1:8000/tienda'
     const [img, setImg] = useState(url + productDetail.port_img)
     const [quantity, setQuantity] = useState(1)
     const [choise, setChoise] = useState(productDetail.choises[0].id)
+    const [inputScope, animateInput] = useAnimate()
+    const [imgScope, animateImg] = useAnimate()
+
     const HandleClick = (e) => {
         setImg(e.target.src)
+        animateImg(imgScope.current, { scale: [1.2, 1], opacity: [0, 1]})
     }
     const HandleSelect = (e) => {
         setChoise(e.target.value)
     }
     const handleChange = (e) => {
         setQuantity(e.target.value)
+        animateInput(inputScope.current, { scale: [1.05, 1], opacity: [0, 1]})
     }
+
     const finalPrice = (productDetail.price - productDetail.discount).toFixed(2);
     const discount = ((productDetail.discount * 100)/productDetail.price).toFixed(0);
     return (
         <div className="detail-container">
-                    <div className="image-container">
+                    <motion.div className="image-container" animate={{x:[-300, 0]}}>
                         <div className="image-container_actual">
-                            <img src={img} alt="" />
+                            <img ref={imgScope} src={img} alt="" />
                         </div>
                         <div className="image-container_carrusel">
-                            <div>
+                            <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                                 <img src={url + productDetail.port_img} alt="" onClick={HandleClick} />
-                            </div>
-                            <div>
+                            </motion.div>
+                            <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                                 <img src={url + productDetail.firts_img} alt="" onClick={HandleClick} />
-                            </div>
+                            </motion.div>
                             {productDetail.second_img && (
-                                <div>
+                                <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                                     <img src={url + productDetail.second_img} alt="" onClick={HandleClick} />
-                                </div>
+                                </motion.div>
                             )}
                             {productDetail.third_img && (
-                                <div>
+                                <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                                     <img src={url + productDetail.third_img} alt="" onClick={HandleClick} />
-                                </div>
+                                </motion.div>
                             )}
                             {productDetail.four_img && (
-                                <div>
+                                <motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                                     <img src={url + productDetail.four_img} alt="" onClick={HandleClick} />
-                                </div>
+                                </motion.div>
                             )}
                         </div>
-                    </div>
-                    <div className="product-detail-container">
+                    </motion.div>
+                    <motion.div className="product-detail-container" animate={{x:[300, 0]}}>
                         <div className="product-detail-container_title">
                             <h1>{productDetail.title}</h1>
                             {
@@ -71,13 +78,13 @@ export function ProductDetail({productDetail}) {
                                 )}
                             </select>
                             <div className='info-container_inputs'>
-                                <input type="number" min="1" value={quantity} onChange={handleChange}/>
+                                <input ref={inputScope} type="number" min="1" value={quantity} onChange={handleChange} />
                                 <ShopButton className='info-container_buton' 
                                 productDetail={productDetail} quantity={quantity} 
                                 discount={discount} finalPrice={finalPrice} choise={choise} price={productDetail.price}>COMPRAR</ShopButton>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             );
 }
