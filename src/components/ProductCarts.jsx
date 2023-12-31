@@ -2,25 +2,28 @@ import { useState } from 'react'
 import '../styles/ProductsCarts.css';
 import { Link } from 'react-router-dom';
 import { MotionButton } from './MotionButton';
-import { motion } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 
 const url = 'http://127.0.0.1:8000/tienda'
 export function ProductCarts({product}) {
     const finalPrice = (product.price - product.discount).toFixed(2);
     const discount = ((product.discount * 100)/product.price).toFixed(2);
     const [urlImg, setUrlImg] = useState(product.port_img)
+    const [imgScope, animateImg] = useAnimate()
 
     const handleMouseEnter = () => {
         setUrlImg(product.firts_img)
+        animateImg(imgScope.current, { scale: [0.9, 1], opacity: [0, 1]})
     }
     const handleMouseLeave = () => {
         setUrlImg(product.port_img)
+        animateImg(imgScope.current, { scale: [0.9, 1], opacity: [0, 1]})
     }
 
   return (
       <motion.article className='ProductCarts-container' animate={{opacity:[0, 1], y:[80,0]}}>
             <div className='ProductCarts-container_img'>
-                <img src={url+urlImg} alt={product.title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+                <img ref={imgScope} src={url+urlImg} alt={product.title} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
             </div>
             <Link to={`/productos/${product.slug}`}>
             <div className='ProductCarts-container_info'>

@@ -47,4 +47,12 @@
     border: none;
     border-radius: 10px;
     margin: 5px auto;
+    cursor: pointer;
+}
+.taxes-container_img{
+    width: 50%;
+    height: 10%;
+    margin: 50px auto;
+    top: 0;
+    left: 0;
 }

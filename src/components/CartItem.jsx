@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import { removecart, editcart } from '../hooks/useCart'
 import { useState, useEffect } from 'react'
-import { useAnimate } from 'framer-motion'
+import { useAnimate, motion } from 'framer-motion'
+import { Trash3Fill } from 'react-bootstrap-icons'
 import '../styles/CartItem.css'
 
 export function CartItem({item, actualizate}) {
@@ -27,7 +28,7 @@ export function CartItem({item, actualizate}) {
         removecart(item.id, actualizate);
     }
   return (
-    <article className='cartItem-article'>
+    <motion.article className='cartItem-article' layout exit={{scale: 0.5, y:-50, opacity:0}} transition={{ type: "spring" }}>
         <div className='CartItem-container-img'>
             <img src={url+item.port_img} alt={item.title} />
         </div>
@@ -46,8 +47,8 @@ export function CartItem({item, actualizate}) {
                 <option value={item.choise[0].id}>{item.choise[0].option}</option>
             </select>
             <input className='quantity-input' onChange={HandleChange} type="number" value={quantity}/>
-            <span className='cartItem-delete' onClick={HandleDelete}>U</span>
+            <motion.span whileHover={{scale:[1, 1.5]}} className='cartItem-delete' onClick={HandleDelete}><Trash3Fill size={25} /></motion.span>
         </div>
-    </article>
+    </motion.article>
   )
 }

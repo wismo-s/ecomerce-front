@@ -27,7 +27,10 @@ export function Home() {
           rotate: useTransform(scrollYProgress, [0, 1], [90, 0]),
         }}
         >
-          <div>
+          <div className='seccion-container_img smoke-red'>
+            <motion.img drag dragConstraints={{top: -10, left: -10, right: 10, bottom: 10,}} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} src="src/assets/img/red-smoke.webp" alt="red-smoke" />
+          </div>
+          <div className='seccion-text'> 
             <h2>COLORANTES</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat impedit fuga voluptatibus id atque vero vitae architecto fugiat mollitia? Repellat odio officia, voluptatum debitis officiis alias adipisci at amet fugit.</p>
           </div>
@@ -37,7 +40,10 @@ export function Home() {
           translateX: useTransform(scrollYProgress, [0, 1], [800, 0]),
           rotate: useTransform(scrollYProgress, [0, 1], [-90, 0]),
         }}>
-          <div className='seccion-slide_2'>
+          <div className='seccion-container_img helado'>
+            <motion.img drag dragConstraints={{top: -10, left: -10, right: 10, bottom: 10,}} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} src="src/assets/img/helado.webp" alt="helado" />
+          </div>
+          <div className='seccion-text seccion-slide_2'>
             <h2>ESENCIAS</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat impedit fuga voluptatibus id atque vero vitae architecto fugiat mollitia? Repellat odio officia, voluptatum debitis officiis alias adipisci at amet fugit.</p>
           </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useUserContext } from '../context/userContext'
 import { motion } from 'framer-motion'
+import { Cart4, PersonCircle } from 'react-bootstrap-icons'
 import '../styles/Header.css'
 
 const links = [
@@ -13,7 +14,7 @@ const links = [
 export function Header() {
     const user = useUserContext();
   return (
-    <motion.div className='Header-container' animate={{
+    <motion.nav className='Header-container' animate={{
         y: [-100, 0],
     }}
     transition={{
@@ -22,29 +23,29 @@ export function Header() {
     }}>
         <ul className='Header-list'>
             {links.map(link => (
-                <li key={link.id} className='Header-list_link' >
+                <motion.li whileHover={{scale:1.1}} whileTap={{scale:0.9}} key={link.id} className='Header-list_link' >
                     <NavLink to={link.to}>{link.text}</NavLink>
-                </li>
-            ))}
+                </motion.li>
+            ))} 
         </ul>
-        <div>
-            <h1><NavLink to="/">LOGO</NavLink></h1>
-        </div>
+        <motion.div className='header-container_img' whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
+            <NavLink to="/"><img src="src/assets/img/daroma-logo.webp" alt="daroma-logo" /></NavLink>
+        </motion.div>
         <div>
             <ul className='Header-list'>
                 {user === null ? (
                     <>
-                        <li className='Header-list_link'><NavLink to='/login'>iniciar session</NavLink></li>
-                        <li className='Header-list_link'><NavLink to='/create-user'>registarse</NavLink></li>
+                        <motion.li whileHover={{scale:1.2}} whileTap={{scale:0.8}} className='Header-list_link'><NavLink to='/login'>iniciar session</NavLink></motion.li>
+                        <motion.li whileHover={{scale:1.2}} whileTap={{scale:0.8}} className='Header-list_link'><NavLink to='/create-user'>registarse</NavLink></motion.li>
                     </>
                 ):(
                     <>
-                        <li className='Header-list_link'><NavLink to='/carrito'>carrito</NavLink></li>
-                        <li className='Header-list_link'><NavLink to='/perfil'>perfil</NavLink></li>
+                        <motion.li whileHover={{scale:1.2}} whileTap={{scale:0.8}} className='Header-list_link'><NavLink to='/carrito'><Cart4 size={30} color='#009746'></Cart4></NavLink></motion.li>
+                        <motion.li whileHover={{scale:1.2}} whileTap={{scale:0.8}} className='Header-list_link'><NavLink to='/perfil'><PersonCircle size={30} color='#009746'></PersonCircle></NavLink></motion.li>
                     </>
                 )}
             </ul>
         </div>
-    </motion.div>
+    </motion.nav>
   )
 }

@@ -17,7 +17,9 @@ export function Taxes({cart}) {
     }, [cart])
   return (
     <motion.section className='taxes-container' animate={{x: [200, 0]}}>
-        <h1>LOGO</h1>
+        <motion.div className='taxes-container_img' whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
+            <img src="src/assets/img/daroma-logo.webp" alt="daroma-logo" />
+        </motion.div>
         <div className='taxes' ref={scope}>
             <p>precio: <span>S/. {totalNonDesc}</span></p>
             <p className="taxes-desc">desuentos: <span>S/. {total-totalNonDesc}</span></p>

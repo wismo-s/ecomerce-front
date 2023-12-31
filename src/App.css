@@ -5,6 +5,11 @@
     font-family: sans-serif;
     border: 0;
 }
+:root{
+    --primary-color: #009746;
+    --secondary-color: #E5194A;
+    --terceary-color: #ffcc01;
+}
 a{
     text-decoration: none;
     color: black;
