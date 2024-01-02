@@ -4,6 +4,7 @@ import { useUserContext } from '../context/userContext'
 import { FormControler } from '../components/FormControler';
 import { InputComponent } from '../components/InputComponent';
 import { motion } from 'framer-motion';
+import { DecorationFrame } from '../components/DecorationFrame';
 import '../styles/FormSyles.css'
 
 export function CreateUser() {
@@ -16,11 +17,14 @@ export function CreateUser() {
 
   return (
     <div className='form-modal'>
+        <DecorationFrame />
         <motion.div className='form-modal_container' 
         animate={{
             x: [500, 0],
         }}>
-            <h2>LOGO</h2>
+            <motion.div className='form-modal_img' whileHover={{scale:1.05}} whileTap={{scale:0.9}}>
+                <img src="src/assets/img/daroma-logo.webp" alt="daroma-logo" />
+            </motion.div>
             <h1>Crea una cuenta</h1>
             <p>porfavor rellene el formulario</p>
             {user === null ? (

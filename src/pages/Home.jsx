@@ -53,7 +53,7 @@ export function Home() {
           translateY: useTransform(scroll.scrollYProgress, [0, 1], [500, 0]),
         }}>
         <div className='img-container'>
-          <img src="" alt="" />
+          <img src="src/assets/img/about-us.webp" alt="about-us" />
         </div>
         <div className='info-container' >
           <h2>SOBRE NOSOTROS</h2>
