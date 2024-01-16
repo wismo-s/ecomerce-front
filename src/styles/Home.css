@@ -63,10 +63,10 @@
     position: absolute;
     border: 1px solid gainsboro;
     top: -50px;
-    left: 20%;
+    left: 15%;
 }
 .info-container{
-    width: 700px;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,5 +87,35 @@
     align-items: center;
     gap: 25px;
     font-size: 1.1rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+@media screen and (max-width: 1100px) {
+    .img-container{
+        left: 5%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .img-container, .seccion-container_img{
+        display: none;
+    }
+    .seccion-container_slide .seccion-text{
+        width: 90%;
+        top: 15px;
+        left: 10px;
+        & h2{
+            font-size: 1.5rem;
+        }
+        & p{
+            font-size: 1rem;
+        }
+    }
+    .seccion-container {
+        height: 350px;
+    }
+    .info-container{
+        width: 80%;
+        left: 10%;
+        top: 15%;
+    }
 }

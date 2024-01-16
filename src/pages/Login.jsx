@@ -28,7 +28,7 @@ export function Login() {
             <motion.div className='form-modal_img' whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
                 <img src="src/assets/img/daroma-logo.webp" alt="daroma-logo" />
             </motion.div>
-            <h1>Crea una cuenta</h1>
+            <h1>Inicie sesion</h1>
             <p>porfavor rellene el formulario</p>
             {user === null ? (
                 <FormControler onsubmitfun={onsubmit} ruteTo={postLogin}>

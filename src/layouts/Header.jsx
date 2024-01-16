@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useUserContext } from '../context/userContext'
 import { motion } from 'framer-motion'
-import { Cart4, PersonCircle } from 'react-bootstrap-icons'
+import { Cart4, PersonCircle, List } from 'react-bootstrap-icons'
 import '../styles/Header.css'
 
 const links = [
@@ -21,6 +21,10 @@ export function Header() {
         duration: 0.4,
         ease: 'backInOut',
     }}>
+        <input className='check-nabvar' type="checkbox" id='check'/>
+        <label className='lavel-nabvar' htmlFor="check">
+            <List size={60}></List>
+        </label>
         <ul className='Header-list'>
             {links.map(link => (
                 <motion.li whileHover={{scale:1.1}} whileTap={{scale:0.9}} key={link.id} className='Header-list_link' >
@@ -31,7 +35,7 @@ export function Header() {
         <motion.div className='header-container_img' whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
             <NavLink to="/"><img src="src/assets/img/daroma-logo.webp" alt="daroma-logo" /></NavLink>
         </motion.div>
-        <div>
+        <div className='perfil-links-navbar'>
             <ul className='Header-list'>
                 {user === null ? (
                     <>

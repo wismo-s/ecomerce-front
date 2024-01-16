@@ -120,5 +120,5 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 50;
 }
