@@ -10,13 +10,12 @@ export function FormControler({children, onsubmitfun, className, ruteTo, buttonO
     const arrdata = Array.from(new FormData(e.target))
     const data = Object.fromEntries(arrdata)
 
-    console.log(data);
-
     ruteTo(data)
     .then((res) => {
         onsubmitfun(res)
+        alert('datos actualizados!!!')
     }).catch((error) => {
-        console.log(error.response);
+        alert('upps, algo salio mal')
         seterr(error.response.data[0])
     })}
 

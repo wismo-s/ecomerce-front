@@ -5,7 +5,7 @@
     position: relative;
     display: flex;
     height: 45px;
-    background-color: aquamarine;
+    background-color: white;
     align-items: center;
     padding-left: 5px;
     margin: 5px;
@@ -24,5 +24,18 @@
 .editableInput_edit{
     position: absolute;
     right: 8px;
-    top: 2px;
+    top: 5px;
+    cursor: pointer;
+}
+.decoration-frame-container{
+    width: 48%;
+    height: 70vh;
+}
+@media screen and (max-width: 1100px) {
+    .decoration-frame-container{
+        display: none;
+    }
+    .userDetail-container .editable-cards-container{
+        width: 100%;
+    }
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 export function useCart() {
   const [cart, setCart] = useState([]);
 
@@ -18,9 +17,17 @@ export function useCart() {
 
 const setcart = (arrdata) => {
   const localCart = JSON.parse(localStorage.getItem('cart'));
-  localCart ? 
-  localStorage.setItem('cart', JSON.stringify([...localCart, arrdata])) :
-  localStorage.setItem('cart', JSON.stringify([arrdata])) 
+  if(localCart){
+    const cartItem =  localCart.findIndex((item) => item.id === arrdata.id)
+    if(cartItem != -1){
+      localCart[cartItem].quantity =  parseInt(localCart[cartItem].quantity) + parseInt(arrdata.quantity)
+      localStorage.setItem('cart', JSON.stringify(localCart))
+    }else{
+      localStorage.setItem('cart', JSON.stringify([...localCart, arrdata]))
+    }
+  }else{
+    localStorage.setItem('cart', JSON.stringify([arrdata])) 
+  }
 }
 const getIndex = (id) => {
   const arr = JSON.parse(localStorage.getItem('cart')) || [];
@@ -42,5 +49,8 @@ const removecart = (id, setcart = ()=>{}) => {
   localStorage.setItem('cart', JSON.stringify(arr));
   setcart(arr);
 };
-
-export { setcart, removecart, editcart }
+const resetCart = (setCart = () =>{}) => {
+  localStorage.removeItem('cart');
+  setCart(null);
+}
+export { setcart, removecart, editcart, resetCart }

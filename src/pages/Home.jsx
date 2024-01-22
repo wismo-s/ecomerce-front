@@ -50,7 +50,7 @@ export function Home() {
         </motion.section>
       </div>
       <motion.div ref={imgref} className='overimage-container' style={{
-          translateY: useTransform(scroll.scrollYProgress, [0, 1], [500, 0]),
+          translateY: useTransform(scroll.scrollYProgress, [0, 1], [400, 0]),
         }}>
         <div className='img-container'>
           <img src="src/assets/img/about-us.webp" alt="about-us" />

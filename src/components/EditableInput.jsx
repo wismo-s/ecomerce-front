@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Pencil } from 'react-bootstrap-icons'
 import '../styles/EditableInputs.css'
 
 export function EditableInput({value, type, label, name, onEditin, isEditable = true}) {
@@ -18,7 +19,7 @@ export function EditableInput({value, type, label, name, onEditin, isEditable = 
         ) : (
                 <span>{value}</span>
         )}
-        {isEditable &&  <span className='editableInput_edit' onClick={HandleClick}>/</span>}
+        {isEditable &&  <Pencil size={18} color='#009746' className='editableInput_edit' onClick={HandleClick}>/</Pencil>}
     </div>
   )
 }

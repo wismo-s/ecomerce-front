@@ -18,7 +18,7 @@ export function Cart() {
           }
         </AnimatePresence>
       </motion.div>
-      <Taxes cart={cart}/>
+      <Taxes cart={cart} setCart={setCart}/>
     </div>
   )
 }

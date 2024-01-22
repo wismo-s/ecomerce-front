@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react"
 import { useAnimate, motion } from "framer-motion"
 import { MotionButton } from "./MotionButton"
+import { resetCart } from "../hooks/useCart"
+import { useNavigate } from "react-router-dom"
 import '../styles/Taxes.css'
 
-export function Taxes({cart}) {
+export function Taxes({cart, setCart }) {
+    const navigate = useNavigate()
     const [total, setTotal] = useState(0)
     const [totalNonDesc, setTotalNonDesc] = useState(0)
     const [scope, animete ] = useAnimate()
+
+    const handleClick = () => {
+        resetCart(setCart);
+        alert('pago exitoso');
+        navigate('/')
+    }
 
     useEffect(() => {
         const total = cart.reduce((acc, item) => acc + item.finalTotal, 0)
@@ -25,7 +34,7 @@ export function Taxes({cart}) {
             <p className="taxes-desc">desuentos: <span>S/. {total-totalNonDesc}</span></p>
             <p className="taxes-total">Total: <span>S/. {total}</span></p>
         </div>
-        <MotionButton className="taxes-pay-button">PAGAR</MotionButton>
+        <MotionButton onClick={handleClick} className="taxes-pay-button">PAGAR</MotionButton>
     </motion.section>
   )
 }
