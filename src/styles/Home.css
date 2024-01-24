@@ -119,3 +119,11 @@
         top: 15%;
     }
 }
+@media screen and (max-width: 520px) {
+    .overimage-container{
+        height: 750px;
+    }
+    .seccion-container{
+        height: 460px;
+    }
+}

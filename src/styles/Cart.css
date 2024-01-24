@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 15px;
     margin-left: 15px;
+    margin-bottom: 80px;
 }
 .Cart-container{
     width: 100%;
@@ -11,4 +12,10 @@
     justify-content: center;
     gap: 25px;
     margin-top: 15px;
+}
+@media screen and (max-width: 1010px) {
+    .cartitems-container{
+        width: 100%;
+        margin: 0 auto;
+    }
 }

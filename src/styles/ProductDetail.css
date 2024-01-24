@@ -35,10 +35,15 @@
     cursor: pointer;
     opacity: 0.7;
 }
+.image-container_actual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 .image-container_carrusel div img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .product-detail-container {
@@ -121,4 +126,18 @@
     border-radius: 10px;
     cursor: pointer;
     z-index: 50;
+}
+@media screen and (max-width: 760px) {
+    .detail-container{
+        flex-direction: column;
+    }
+    .image-container{
+        width: 100%;
+        height: auto;
+    }
+    .product-detail-container{
+        width: 90%;
+        margin-bottom: 100px;
+        margin-top: 15px;
+    }
 }

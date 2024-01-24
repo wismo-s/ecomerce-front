@@ -7,7 +7,7 @@ import { motion, useAnimate } from 'framer-motion';
 const url = 'http://127.0.0.1:8000/tienda'
 export function ProductCarts({product}) {
     const finalPrice = (product.price - product.discount).toFixed(2);
-    const discount = ((product.discount * 100)/product.price).toFixed(2);
+    const discount = ((product.discount * 100)/product.price).toFixed(0);
     const [urlImg, setUrlImg] = useState(product.port_img)
     const [imgScope, animateImg] = useAnimate()
 

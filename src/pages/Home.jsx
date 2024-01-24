@@ -32,7 +32,7 @@ export function Home() {
           </div>
           <div className='seccion-text'> 
             <h2>COLORANTES</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat impedit fuga voluptatibus id atque vero vitae architecto fugiat mollitia? Repellat odio officia, voluptatum debitis officiis alias adipisci at amet fugit.</p>
+            <p>Descubre la magia de los colorantes alimenticios en nuestra amplia gama de productos que transformarán tus creaciones culinarias en obras maestras visuales. Encontrarás una paleta vibrante de colores que no solo deleitarán tu paladar, sino que también despertarán tus sentidos.</p>
           </div>
         </motion.section>
         <motion.section className='seccion-container_slide slide2'
@@ -45,7 +45,7 @@ export function Home() {
           </div>
           <div className='seccion-text seccion-slide_2'>
             <h2>ESENCIAS</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat impedit fuga voluptatibus id atque vero vitae architecto fugiat mollitia? Repellat odio officia, voluptatum debitis officiis alias adipisci at amet fugit.</p>
+            <p>En cada gota, encontrarás el secreto para realzar el sabor y aromatizar tus creaciones culinarias como nunca antes.Nuestras esencias, cuidadosamente elaboradas con ingredientes naturales y seleccionados, ofrecen una amplia variedad de opciones, desde las clásicas hasta las más innovadoras</p>
           </div>
         </motion.section>
       </div>
@@ -58,10 +58,10 @@ export function Home() {
         <div className='info-container' >
           <h2>SOBRE NOSOTROS</h2>
           <motion.ul className='info-container_ul' >
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio perspiciatis distinctio tempora alias fugit eius, eum nulla expedita est voluptate veniam quo veritatis et autem nostrum quae dolor obcaecati dignissimos.</li>            
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio perspiciatis distinctio tempora alias fugit eius, eum nulla expedita est voluptate veniam quo veritatis et autem nostrum quae dolor obcaecati dignissimos.</li>   
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio perspiciatis distinctio tempora alias fugit eius, eum nulla expedita est voluptate veniam quo veritatis et autem nostrum quae dolor obcaecati dignissimos.</li>            
-            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio perspiciatis distinctio tempora alias fugit eius, eum nulla expedita est voluptate veniam quo veritatis et autem nostrum quae dolor obcaecati dignissimos.</li>          
+            <li>En nuestro empeño por ser líderes de la industria, invertimos en investigación y desarrollo para traer las últimas tendencias en colorantes y esencias.</li>            
+            <li>Nuestros colorantes y esencias son seleccionados cuidadosamente para garantizar su pureza, frescura y sabor incomparable.</li>   
+            <li>Fundada hace más de una década, nuestra misión es elevar la experiencia culinaria de cada hogar y negocio.</li>            
+            <li> Al elegir nuestros colorantes y esencias, no solo está eligiendo calidad, sino también un compromiso con un futuro más sostenible y consciente.</li>          
           </motion.ul>
         </div>
       </motion.div>

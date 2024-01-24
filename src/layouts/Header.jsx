@@ -6,9 +6,9 @@ import { Cart4, PersonCircle, List } from 'react-bootstrap-icons'
 import '../styles/Header.css'
 
 const links = [
-  { id: 1, to: '/insumos', text: 'Insumos' },
-  { id: 2, to: '/esencias', text: 'Esencias' },
-  { id: 3, to: '/colorantes', text: 'Colorantes' },
+  { id: 1, to: 'categoria/insumos', text: 'Insumos' },
+  { id: 2, to: 'categoria/esencias', text: 'Esencias' },
+  { id: 3, to: 'categoria/colorantes', text: 'Colorantes' },
 ]
 
 export function Header() {
